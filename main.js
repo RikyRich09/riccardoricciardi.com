@@ -15,7 +15,7 @@ const data = {
 
 app.get('/', (req, res) => {
   res.sendFile(basePath + 'index.html', (err) => {
-    err ? res.status(500).sendFile(basePath + '500.html') : console.log('Index.html caricato con successo');
+    if (err) { res.status(500).sendFile(basePath + '500.html') }
   });
 });
 
