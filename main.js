@@ -1,7 +1,7 @@
 // Importa il modulo Express
 const express = require('express');
 const app = express();
-const port = 443; // Porta 443 per HTTPS
+const port = 5000; // Porta 443 per HTTPS
 
 // Dati JSON che verranno restituiti quando si accede a /data
 const data = {
