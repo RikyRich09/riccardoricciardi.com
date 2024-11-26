@@ -23,14 +23,16 @@ app.get('/data', (req, res) => {
   res.json(data);
 });
 
+const errorPath = basePath + 'error/';
+
 // Gestione degli errori 404 (Pagina non trovata)
 app.use((req, res) => {
-  res.status(404).sendFile(basePath + '404.html');
+  res.status(404).sendFile(errorPath + '404.html');
 });
 
 // Gestione degli errori 500 (Server interno)
 app.use((err, req, res, next) => {
-  res.status(500).sendFile(basePath + '500.html');
+  res.status(500).sendFile(errorPath + '500.html');
 });
 
 // Avvia il server
