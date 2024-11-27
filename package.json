@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "git": "git add . && git commit -m \"Aggiornamento automatico\" && git push origin main --force"
+    "git-push": "git add . && git commit -m \"Aggiornamento automatico\" && git push origin main --force",
+    "git-pull": "git pull origin main && sudo mv -f ~/riccardoricciardi.com/public/* /var/www/riccardoricciardi.com/"
   },
   "keywords": [],
   "author": "",
