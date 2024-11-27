@@ -17,11 +17,12 @@
             color: #333;
         }
 
-        a:nth-child(1) {
+        .link-data {
             color: #007bff;
             text-decoration: none;
         }
-        a:nth-child(2) {
+
+        .link-error {
             color: #721c24;
             text-decoration: none;
         }
@@ -31,8 +32,8 @@
 <body>
     <h1>Benvenuto nel mio sito!</h1>
     <p>Questo è un esempio di una home page servita con Express.</p>
-    <p><a href="/data">Visualizza dati JSON</a></p>
-    <p><a href="/errore">Visualizza pagina 404</a></p>
+    <p><a href="/data" class="link-data">Visualizza dati JSON</a></p>
+    <p><a href="/errore" class="link-error">Visualizza pagina 404</a></p>
 </body>
 
 </html>
