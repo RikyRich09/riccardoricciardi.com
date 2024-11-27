@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "git-push": "git add . && git commit -m \"Aggiornamento automatico\" && git push origin main --force",
-    "git-pull": "git fetch origin && git reset --hard origin/main && git pull origin main && sudo rsync -av --delete ~/riccardoricciardi.com/public/ /var/www/riccardoricciardi.com/ && pm2 restart main"
+    "gitPush": "git add . && git commit -m \"Aggiornamento automatico\" && git push origin main --force",
+    "gitPull": "git fetch origin && git reset --hard origin/main && git pull origin main && sudo rsync -av --delete ~/riccardoricciardi.com/public/ /var/www/riccardoricciardi.com/ && pm2 restart main && ls /var/www/riccardoricciardi.com/"
   },
   "keywords": [],
   "author": "",
