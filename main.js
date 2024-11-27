@@ -1,8 +1,11 @@
 const express = require('express');
+const path = require('path');
+const compression = require('compression');
 const app = express();
 const port = 5000;
 
 const basePath = '/var/www/riccardoricciardi.com/';
+const distPath = path.join(basePath, 'dist');
 
 const data = {
   message: "Questo è un esempio di JSON restituito dal server",
@@ -13,29 +16,20 @@ const data = {
   }
 };
 
-app.get('/', (req, res) => {
-  res.sendFile(basePath + 'index.html', (err) => {
-    if (err) { res.status(500).sendFile(basePath + '500.html') }
-  });
-});
+app.use(compression());
+app.use(express.static(distPath, {
+  maxAge: '1d',
+  etag: false
+}));
 
 app.get('/data', (req, res) => {
   res.json(data);
 });
 
-const errorPath = basePath + 'error/';
-
-// Gestione degli errori 404 (Pagina non trovata)
-app.use((req, res) => {
-  res.status(404).sendFile(errorPath + '404.html');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
-// Gestione degli errori 500 (Server interno)
-app.use((err, req, res, next) => {
-  res.status(500).sendFile(errorPath + '500.html');
-});
-
-// Avvia il server
 app.listen(port, () => {
   console.log(`Server in ascolto sulla porta ${port}`);
 });
