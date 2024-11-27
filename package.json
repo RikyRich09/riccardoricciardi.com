@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "gitPush": "git add . && git commit -m \"Aggiornamento automatico\" && git push origin main --force",
-    "gitPull": "git fetch origin && git reset --hard origin/main && git pull origin main && sudo rsync -av --delete ~/riccardoricciardi.com/public/ /var/www/riccardoricciardi.com/ && pm2 restart main"
+    "gitPull": "git fetch origin && git reset --hard origin/main && git pull origin main && sudo rsync -av --delete ~/riccardoricciardi.com/public/ /var/www/riccardoricciardi.com/ && pm2 restart main && sudo systemctl restart nginx"
   },
   "keywords": [],
   "author": "",
