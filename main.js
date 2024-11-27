@@ -4,8 +4,7 @@ const compression = require('compression');
 const app = express();
 const port = 5000;
 
-const basePath = '/var/www/riccardoricciardi.com/';
-const distPath = path.join(basePath, 'dist');
+const basePath = '/var/www/riccardoricciardi.com/dist/';
 
 const data = {
   message: "Questo è un esempio di JSON restituito dal server",
@@ -17,7 +16,7 @@ const data = {
 };
 
 app.use(compression());
-app.use(express.static(distPath, {
+app.use(express.static(basePath, {
   maxAge: '1d',
   etag: false
 }));
@@ -27,7 +26,7 @@ app.get('/data', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+  res.sendFile(path.join(basePath, 'index.html'));
 });
 
 app.listen(port, () => {
